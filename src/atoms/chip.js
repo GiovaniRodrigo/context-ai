@@ -7,5 +7,5 @@ export function Chip({ label, icon, active = false, onClick }) {
     type: 'button',
     'aria-pressed': String(active),
     onClick,
-  }, icon ? h('span', { 'aria-hidden': 'true' }, icon) : null, label);
+  }, icon ? h('span', { class: 'chip__icon', 'aria-hidden': 'true' }, icon) : null, label);
 }

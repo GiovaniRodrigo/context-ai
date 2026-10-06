@@ -1,9 +1,26 @@
 import { h } from '../lib/dom.js';
-import { Badge } from '../atoms/badge.js';
 
 export function SiteHeader() {
   return h('header', { class: 'site-header' },
-    Badge({ text: 'Janela de contexto', tone: 'good' }),
-    h('h1', {}, 'A mesma IA. ', h('span', { class: 'grad' }, 'Respostas bem diferentes.')),
-    h('p', {}, 'Um modelo de linguagem só sabe o que está na conversa. Escolha um cenário, envie a pergunta e compare o que acontece quando ele recebe — ou não — o contexto certo.'));
+    h('div', { class: 'site-header__top' },
+      h('div', { class: 'brand' },
+        h('span', { class: 'brand__mark', 'aria-hidden': 'true' }, h('i'), h('i'), h('i')),
+        h('span', { class: 'brand__name' }, 'context', h('strong', {}, '.ai'))),
+      h('div', { class: 'site-header__status' },
+        h('span', { class: 'status-dot', 'aria-hidden': 'true' }),
+        'SIMULAÇÃO INTERATIVA')),
+    h('div', { class: 'site-header__hero' },
+      h('div', { class: 'site-header__copy' },
+        h('p', { class: 'eyebrow' },
+          h('span', { class: 'eyebrow__line', 'aria-hidden': 'true' }),
+          'LABORATÓRIO DE CONTEXTO'),
+        h('h1', {}, 'Uma pergunta. ', h('span', { class: 'grad' }, 'Duas respostas.')),
+        h('p', { class: 'site-header__intro' }, 'Compare como a mesma IA responde quando recebe — ou não — as informações certas.')),
+      h('aside', { class: 'hero-note', 'aria-label': 'Resumo da demonstração' },
+        h('span', { class: 'hero-note__kicker' }, 'A IDEIA'),
+        h('p', {}, 'Sem contexto, o modelo generaliza. Com contexto, conecta a resposta à sua situação.'),
+        h('div', { class: 'hero-note__footer' },
+          h('span', {}, 'MESMA PERGUNTA'),
+          h('span', { class: 'hero-note__arrow', 'aria-hidden': 'true' }, '→'),
+          h('span', {}, 'RESPOSTA MAIS ÚTIL')))));
 }

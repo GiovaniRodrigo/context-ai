@@ -14,7 +14,7 @@ export function HomePage() {
   const trayHost = h('div', { class: 'tray-host' });
   const informed = ChatPanel({ variant: 'informed' });
   const pickerHost = h('div', { class: 'picker-host' });
-  const question = h('p', { class: 'question' });
+  const question = h('p', { class: 'question', 'aria-live': 'polite' });
 
   // monta a resposta com contexto a partir dos itens ligados
   function informedAnswer() {
@@ -75,13 +75,26 @@ export function HomePage() {
     header: SiteHeader(),
     tray: trayHost,
     controls: [
-      pickerHost,
-      question,
-      Button({ label: 'Enviar pergunta', icon: '▶', onClick: ask }),
+      h('section', { class: 'scenario-control', 'aria-label': 'Etapa 1: escolha um cenário' },
+        h('div', { class: 'control-heading' },
+          h('div', { class: 'control-heading__title' },
+            h('span', { class: 'step-number', 'aria-hidden': 'true' }, '01'),
+            h('div', {},
+              h('h2', {}, 'Escolha a situação'),
+              h('p', {}, 'A pergunta e o contexto mudam junto.'))),
+          h('span', { class: 'control-count' }, `${scenarios.length} CENÁRIOS`)),
+        pickerHost),
+      h('div', { class: 'prompt-bar' },
+        h('div', { class: 'prompt-bar__copy' },
+          h('span', { class: 'prompt-label' }, 'PERGUNTA ATUAL'),
+          question),
+        Button({ label: 'Comparar respostas', icon: '→', onClick: ask })),
     ],
     left: blind.el,
     right: informed.el,
-    footer: h('footer', { class: 'site-footer' }, 'Contexto = instruções, histórico, documentos e dados do usuário enviados junto com a pergunta. Sem eles, o modelo só pode generalizar.'),
+    footer: h('footer', { class: 'site-footer' },
+      h('span', { class: 'site-footer__label' }, 'EM UMA FRASE'),
+      h('p', {}, h('strong', {}, 'Contexto'), ' é tudo o que acompanha a pergunta: preferências, histórico, documentos e dados relevantes.')),
   });
 
   // primeira execução, após o layout existir

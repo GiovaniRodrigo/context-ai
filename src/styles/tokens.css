@@ -1,32 +1,72 @@
 :root {
-  --bg: #0a0d14;
-  --surface: #121722;
-  --surface-2: #1a2130;
-  --border: #263044;
-  --text: #e8edf6;
-  --muted: #8d9ab3;
-  --warn: #f5a623;
-  --warn-soft: rgba(245, 166, 35, .14);
-  --good: #2dd4bf;
-  --good-soft: rgba(45, 212, 191, .14);
-  --bad: #f2646f;
-  --radius: 14px;
-  --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color-scheme: light;
+  --bg: #f4f6f2;
+  --surface: #ffffff;
+  --surface-2: #f0f4f0;
+  --surface-3: #e6eee8;
+  --border: #dbe5de;
+  --text: #15251e;
+  --muted: #607168;
+  --warn: #975817;
+  --warn-soft: rgba(190, 126, 44, .12);
+  --good: #167a5d;
+  --good-strong: #146e54;
+  --good-soft: rgba(27, 142, 102, .11);
+  --bad: #ad4b4b;
+  --radius: 18px;
+  --shadow: 0 24px 60px -48px rgba(20, 48, 34, .4);
+  --action-text: #f7fbf8;
+  --font: Inter, "Avenir Next", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --display: "Iowan Old Style", Baskerville, "Palatino Linotype", Georgia, serif;
   --mono: ui-monospace, "SF Mono", Menlo, monospace;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { color-scheme: dark; }
+html { scroll-behavior: smooth; }
 body {
-  margin: 0; min-height: 100vh; font-family: var(--font); color: var(--text); line-height: 1.55;
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font);
+  color: var(--text);
+  line-height: 1.55;
   background:
-    radial-gradient(900px 500px at 15% -10%, rgba(245,166,35,.09), transparent 60%),
-    radial-gradient(900px 500px at 85% -10%, rgba(45,212,191,.12), transparent 60%),
+    radial-gradient(850px 430px at 7% -15%, rgba(205, 152, 79, .12), transparent 64%),
+    radial-gradient(850px 520px at 93% -10%, rgba(85, 163, 127, .11), transparent 62%),
     var(--bg);
 }
 h1, h2, p { margin: 0; }
 button { font: inherit; color: inherit; }
+::selection { color: var(--text); background: var(--good-soft); }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg: #0b100e;
+    --surface: #111815;
+    --surface-2: #18211c;
+    --surface-3: #202b25;
+    --border: #293830;
+    --text: #edf3ee;
+    --muted: #a0ada5;
+    --warn: #efb357;
+    --warn-soft: rgba(234, 179, 93, .13);
+    --good: #71d6aa;
+    --good-strong: #62c998;
+    --good-soft: rgba(113, 214, 170, .13);
+    --bad: #f17b77;
+    --shadow: 0 24px 60px -48px rgba(0, 0, 0, .8);
+    --action-text: #0b1a12;
+  }
+
+  body {
+    background:
+      radial-gradient(850px 430px at 7% -15%, rgba(205, 152, 79, .09), transparent 64%),
+      radial-gradient(850px 520px at 93% -10%, rgba(85, 163, 127, .1), transparent 62%),
+      var(--bg);
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
