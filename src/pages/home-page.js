@@ -75,7 +75,7 @@ export function HomePage() {
     header: SiteHeader(),
     tray: trayHost,
     controls: [
-      h('section', { class: 'scenario-control', 'aria-label': 'Etapa 1: escolha um cenário' },
+      h('section', { class: 'scenario-control', id: 'comparacao', 'aria-label': 'Etapa 1: escolha um cenário' },
         h('div', { class: 'control-heading' },
           h('div', { class: 'control-heading__title' },
             h('span', { class: 'step-number', 'aria-hidden': 'true' }, '01'),
@@ -94,7 +94,8 @@ export function HomePage() {
     right: informed.el,
     footer: h('footer', { class: 'site-footer' },
       h('span', { class: 'site-footer__label' }, 'EM UMA FRASE'),
-      h('p', {}, h('strong', {}, 'Contexto'), ' é tudo o que acompanha a pergunta: preferências, histórico, documentos e dados relevantes.')),
+      h('p', {}, h('strong', {}, 'Contexto'), ' é tudo o que acompanha a pergunta: preferências, histórico, documentos e dados relevantes.'),
+      h('p', { class: 'site-footer__note' }, 'As respostas e métricas desta página são exemplos simulados para demonstração.')),
   });
 
   // primeira execução, após o layout existir
