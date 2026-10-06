@@ -1,0 +1,38 @@
+/* Button */
+.btn { display: inline-flex; align-items: center; gap: .5rem; border: 0; border-radius: 999px; padding: .65rem 1.2rem; font-weight: 600; cursor: pointer; transition: transform .15s, box-shadow .2s, filter .2s; }
+.btn:hover { transform: translateY(-1px); filter: brightness(1.08); }
+.btn:active { transform: translateY(0) scale(.98); }
+.btn:focus-visible, .chip:focus-visible, .switch__input:focus-visible + .switch__track { outline: 2px solid var(--good); outline-offset: 2px; }
+.btn--primary { background: linear-gradient(135deg, var(--good), #38bdf8); color: #04141a; box-shadow: 0 6px 24px -8px var(--good); }
+.btn__icon { font-size: .8em; }
+
+/* Badge */
+.badge { display: inline-block; font-size: .72rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; padding: .22rem .6rem; border-radius: 999px; border: 1px solid var(--border); color: var(--muted); }
+.badge--good { color: var(--good); background: var(--good-soft); border-color: transparent; text-transform: none; }
+.badge--warn { color: var(--warn); background: var(--warn-soft); border-color: transparent; text-transform: none; }
+
+/* Chip */
+.chip { display: inline-flex; gap: .45rem; align-items: center; border: 1px solid var(--border); background: var(--surface); border-radius: 999px; padding: .45rem .95rem; cursor: pointer; color: var(--muted); transition: all .2s; }
+.chip:hover { color: var(--text); border-color: var(--muted); }
+.chip.is-active { color: var(--text); border-color: var(--good); background: var(--good-soft); }
+
+/* Switch */
+.switch { position: relative; flex: none; cursor: pointer; }
+.switch__input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.switch__track { display: block; width: 38px; height: 22px; border-radius: 999px; background: var(--border); transition: background .25s; }
+.switch__thumb { position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: #fff; transition: transform .25s cubic-bezier(.3,1.4,.5,1); }
+.switch__input:checked + .switch__track { background: var(--good); }
+.switch__input:checked + .switch__track .switch__thumb { transform: translateX(16px); }
+
+/* Meter */
+.meter { display: block; height: 8px; border-radius: 99px; background: var(--surface-2); overflow: hidden; }
+.meter__fill { display: block; height: 100%; width: 0; border-radius: inherit; transition: width .9s cubic-bezier(.2,.8,.2,1); background: var(--muted); }
+.meter--good .meter__fill { background: linear-gradient(90deg, #38bdf8, var(--good)); }
+.meter--warn .meter__fill { background: var(--warn); }
+.meter--bad .meter__fill { background: var(--bad); }
+
+/* Typewriter */
+.caret { display: inline-block; width: 7px; height: 1.05em; margin-left: 2px; vertical-align: text-bottom; background: currentColor; animation: blink 1s steps(2) infinite; }
+.mark { background: var(--good-soft); border-bottom: 2px solid var(--good); border-radius: 3px; padding: 0 2px; animation: mark-in .5s ease-out; }
+@keyframes blink { 50% { opacity: 0; } }
+@keyframes mark-in { from { background: rgba(45,212,191,.5); } }

@@ -1,0 +1,10 @@
+.tpl { max-width: 1180px; margin: 0 auto; padding: 3rem 1.25rem 2rem; display: grid; gap: 2rem; }
+.tpl__controls { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; justify-content: space-between; padding: 1rem 1.1rem; border: 1px solid var(--border); border-radius: var(--radius); background: rgba(18,23,34,.7); backdrop-filter: blur(8px); }
+.question { flex: 1 1 18rem; color: var(--muted); font-style: italic; }
+.tpl__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; align-items: stretch; }
+.site-footer { text-align: center; color: var(--muted); font-size: .85rem; max-width: 40rem; margin: 0 auto; }
+
+@media (max-width: 860px) {
+  .tpl__grid { grid-template-columns: 1fr; }
+  .metric { grid-template-columns: 7.5rem 1fr 2.8rem; }
+}
