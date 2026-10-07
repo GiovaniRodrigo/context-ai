@@ -1,9 +1,9 @@
 :root {
   color-scheme: light;
   --bg: #f4f6f2;
-  --surface: #ffffff;
-  --surface-2: #f0f4f0;
-  --surface-3: #e6eee8;
+  --surface: rgba(255, 255, 255, .88);
+  --surface-2: rgba(240, 244, 240, .82);
+  --surface-3: rgba(230, 238, 232, .76);
   --border: #dbe5de;
   --text: #15251e;
   --muted: #607168;
@@ -42,9 +42,9 @@ button { font: inherit; color: inherit; }
   :root {
     color-scheme: dark;
     --bg: #0b100e;
-    --surface: #111815;
-    --surface-2: #18211c;
-    --surface-3: #202b25;
+    --surface: rgba(17, 24, 21, .88);
+    --surface-2: rgba(24, 33, 28, .82);
+    --surface-3: rgba(32, 43, 37, .76);
     --border: #293830;
     --text: #edf3ee;
     --muted: #a0ada5;

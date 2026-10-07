@@ -7,6 +7,38 @@ import { ContextTray } from '../organisms/context-tray.js';
 import { SiteHeader } from '../organisms/site-header.js';
 import { ComparisonTemplate } from '../templates/comparison-template.js';
 
+function FloatingLetters() {
+  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  const columns = 10;
+  const glyphs = Array.from({ length: 90 }, (_, index) => {
+    const row = Math.floor(index / columns);
+    const column = index % columns;
+    const x = 2.5 + column * 10.1 + ((index * 7) % 6);
+    const y = 1.5 + row * 11.3 + ((index * 11) % 5);
+    const size = [0.72, 0.88, 1.02, 1.22, 1.45][index % 5];
+    const opacity = [0.16, 0.23, 0.18, 0.28, 0.2][index % 5];
+    const style = [
+      `--glyph-x:${x.toFixed(1)}%`,
+      `--glyph-y:${y.toFixed(1)}%`,
+      `--glyph-size:${size}rem`,
+      `--glyph-opacity:${opacity}`,
+      `--glyph-tilt:${(index * 13) % 15 - 7}deg`,
+      `--glyph-delay:-${((index * 7) % 120) / 10}s`,
+      `--glyph-duration:${14 + (index * 5) % 13}s`,
+      `--glyph-drift-x:${(index * 7) % 25 - 12}px`,
+      `--glyph-drift-y:${(index * 11) % 25 - 12}px`,
+    ].join(';');
+    const tone = index % 9 === 0 ? ' letter-field__glyph--warm' : '';
+
+    return h('span', {
+      class: `letter-field__glyph${tone}`,
+      style,
+    }, alphabet[(index * 17 + row) % alphabet.length]);
+  });
+
+  return h('div', { class: 'letter-field', 'aria-hidden': 'true' }, glyphs);
+}
+
 export function HomePage() {
   const state = { scenario: scenarios[0], enabled: new Set(scenarios[0].context.map((c) => c.id)) };
 
@@ -100,5 +132,5 @@ export function HomePage() {
 
   // primeira execução, após o layout existir
   requestAnimationFrame(() => setTimeout(ask, 400));
-  return page;
+  return h('div', { class: 'page-shell' }, FloatingLetters(), page);
 }
