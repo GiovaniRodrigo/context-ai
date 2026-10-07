@@ -6,7 +6,7 @@ export function ContextTray({ items, enabled, onToggle }) {
   return h('section', { class: 'tray', 'aria-labelledby': 'context-heading' },
     h('div', { class: 'tray__head' },
       h('div', {},
-        h('p', { class: 'tray__eyebrow' }, '02 / CONTEXTO DISPONÍVEL'),
+        h('p', { class: 'tray__eyebrow' }, 'FONTES DE CONTEXTO'),
         h('h2', { class: 'tray__title', id: 'context-heading' }, 'O que essa IA sabe?')),
       h('span', { class: 'tray__count' }, `${items.length} FONTES SIMULADAS`)),
     h('p', { class: 'tray__hint' }, 'Ative ou desative os cartões. A resposta e as métricas se atualizam na hora.'),

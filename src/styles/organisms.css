@@ -71,3 +71,27 @@
   .tray__grid { grid-template-columns: 1fr; }
   .tray__count { font-size: .55rem; }
 }
+
+.site-header { gap: clamp(1.7rem, 3vw, 2.6rem); }
+.site-header__top { border-bottom-style: dashed; }
+.brand__mark { border-style: dashed; border-radius: 4px; background: var(--surface-2); }
+.site-header h1 { font-family: var(--font); font-weight: 520; }
+.grad { font-style: normal; font-weight: 650; }
+.hero-cta { border-radius: 4px; }
+.hero-note { border-style: dashed; border-radius: 4px; background: var(--surface); box-shadow: none; }
+.panel { border-radius: 4px; background: var(--surface); box-shadow: none; }
+.panel::before { height: 1px; }
+.panel__index { border-style: dashed; border-radius: 3px; background: transparent; }
+.panel__stage {
+  border: 1px dashed var(--border);
+  border-radius: 3px;
+  background:
+    linear-gradient(rgba(54, 73, 60, .045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(54, 73, 60, .045) 1px, transparent 1px),
+    var(--surface-2);
+  background-size: 16px 16px, 16px 16px, auto;
+}
+.panel__stage-label { border: 1px dashed var(--border); padding: .12rem .3rem; color: var(--muted); background: var(--surface-2); }
+.neural { filter: grayscale(1); opacity: .78; }
+.panel__metrics { border-top-style: dashed; }
+.tray { border-style: dashed; border-radius: 4px; background: var(--surface); }

@@ -37,3 +37,12 @@
 .metric__value { text-align: right; font-family: var(--mono); font-size: .75rem; }
 
 .tag-list { display: flex; flex-wrap: wrap; gap: .4rem; }
+
+.ctx-card { border-style: dashed; border-radius: 4px; background: var(--surface); box-shadow: none; }
+.ctx-card.is-on { border-style: solid; box-shadow: none; }
+.ctx-card:hover { transform: none; }
+.ctx-card__icon { border: 1px dashed var(--border); border-radius: 4px; background: transparent; }
+.bubble { border-radius: 6px; }
+.bubble--user { border: 1px dashed var(--border); border-top-left-radius: 0; background: var(--surface-2); }
+.bubble--ai { border-style: dashed; border-radius: 6px; background: var(--surface); }
+.bubble--ai { border-top-left-radius: 0; }
